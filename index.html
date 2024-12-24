@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+        .side-image {
+          position: fixed;
+    top: 0; /* Navbar'ın altına yerleştirmek için üstten boşluk bırakmıyoruz */
+    height: 100vh; /* Resimlerin ekranın tamamını kaplamasını sağlıyoruz */
+    width: 20vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+        }
+        .left-image {
+            left: 0;
+        }
+        .right-image {
+            right: 0;
+        }
+        .content {
+            margin: 0 20vw; /* Sağ ve sol resimler için boşluk */
+            padding-top: 1rem;
+        }
+        nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10; /* Navbar'ı diğer öğelerin üstüne getirecek */
+}
+
+        /* Mobil uyumlu düzenlemeler */
+        @media (max-width: 768px) {
+            .side-image {
+                display: none; /* Resimleri mobilde gizliyoruz */
+            }
+            .content {
+                margin: 0 0; /* Sol ve sağdan boşluk kaldırılıyor */
+            }
+            .mt-6.space-y-12 {
+                grid-template-columns: 1fr; /* Mobilde tek sütun düzeni */
+                gap: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <!-- Sol kısım (logo ve menü) -->
+                <div class="flex flex-1 items-center justify-start">
+                    <!-- Logo -->
+                    <div class="flex shrink-0 items-center">
+                        <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                    </div>
+                    <!-- Menü (büyük ekranlar) -->
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Ana Sayfa</a>
+                            <a href="./contact.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
+                            <a href="./about.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Hakkımızda</a>
+                            <a href="./location.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Lokasyon</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Hamburger Icon -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile menu -->
+        <div class="sm:hidden" id="mobile-menu" style="display: none;">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Ana Sayfa</a>
+                <a href="./contact.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
+                <a href="./about.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Hakkımızda</a>
+                <a href="./location.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Lokasyon</a>
+            </div>
+        </div>
+    </nav>
+    
+    <script>
+        // Toggle mobile menu visibility
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+    
+
+    <!-- Sol Resim -->
+    <div class="side-image left-image" style="background-image: url('./picture/bordo-leopar-desenli-baglamali-saten-e-dc-4d9.jpg');"></div>
+
+    <!-- Sağ Resim -->
+    <div class="side-image right-image" style="background-image: url('./picture/lacivert-sirt-dekolteli-saten-elbise-53b322.jpg');"></div>
+
+    <!-- İçerik -->
+    <div class="content">
+        <div class="bg-gray-100">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-22">
+                    <h2 class="text-2xl font-bold text-gray-900">En Çok Satan Ürünlerimiz</h2>
+                    <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                        <!-- İlk kutu -->
+                        <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                            <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                                <img src="./picture/kirmizi-v-yaka-yirtmacli-oversize-kaza-9-40f0.jpg" alt="Ürün 1" class="w-full h-full object-cover group-hover:opacity-75">
+                            </div>
+                            <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                            <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                        </div>
+                        <!-- Diğer kutular -->
+                        <!-- İkinci kutu -->
+                        <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                            <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                                <img src="./picture/krem-sac-orgulu-logolu-kazak-d92-22.jpg" alt="Ürün 2" class="w-full h-full object-cover group-hover:opacity-75">
+                            </div>
+                            <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                            <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                        </div>
+                        <!-- Üçüncü kutu -->
+                        <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                            <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                                <img src="./picture/lacivert-beyaz-cizgili-basic-aura-bluz-41d9-9.jpg" alt="Ürün 3" class="w-full h-full object-cover group-hover:opacity-75">
+                            </div>
+                            <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                            <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+      <div class="bg-gray-100">
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-22">
+                 
+                  <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                      <!-- İlk kutu -->
+                      <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                          <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                              <img src="./picture/lacivert-sac-orgu-marka-model-logolu-h-bc3e73.jpg" alt="Ürün 1" class="w-full h-full object-cover group-hover:opacity-75">
+                          </div>
+                          <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                          <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                      </div>
+                      <!-- Diğer kutular -->
+                      <!-- İkinci kutu -->
+                      <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                          <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                              <img src="./picture/pembe-sac-orgu-marka-model-logolu-hirk--8b82-.jpg" alt="Ürün 2" class="w-full h-full object-cover group-hover:opacity-75">
+                          </div>
+                          <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                          <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                      </div>
+                      <!-- Üçüncü kutu -->
+                      <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                          <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                              <img src="./picture/siyah-kirmizi-kalp-nakisli-triko-kazak-7-d81b.jpg" alt="Ürün 3" class="w-full h-full object-cover group-hover:opacity-75">
+                          </div>
+                          <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                          <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="content">
+    <div class="bg-gray-100">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-22">
+               
+                <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                    <!-- İlk kutu -->
+                    <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                        <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                            <img src="./picture/beyaz-siyah-cizgili-basic-aura-bluz-9667a0.jpg" alt="Ürün 1" class="w-full h-full object-cover group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                        <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                    </div>
+                    <!-- Diğer kutular -->
+                    <!-- İkinci kutu -->
+                    <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                        <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                            <img src="./picture/bordo-cift-yakali-basic-bluz-a-4d34.jpg" alt="Ürün 2" class="w-full h-full object-cover group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                        <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                    </div>
+                    <!-- Üçüncü kutu -->
+                    <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                        <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                            <img src="./picture/bordo-lacivert-seritli-polo-yaka-kazak-7fab18.jpg" alt="Ürün 3" class="w-full h-full object-cover group-hover:opacity-75">
+                        </div>
+                        <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                        <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+  <div class="bg-gray-100">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-22">
+             
+              <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                  <!-- İlk kutu -->
+                  <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                      <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                          <img src="./picture/gri-kemerli-pelus-blazer-ceket-672a90.jpg" alt="Ürün 1" class="w-full h-full object-cover group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                      <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                  </div>
+                  <!-- Diğer kutular -->
+                  <!-- İkinci kutu -->
+                  <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                      <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                          <img src="./picture/gri-sac-orgu-marka-model-logolu-hirka-7-4d3d.jpg" alt="Ürün 2" class="w-full h-full object-cover group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                      <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                  </div>
+                  <!-- Üçüncü kutu -->
+                  <div class="group relative flex flex-col items-center max-w-xs mx-auto">
+                      <div class="w-full h-96 overflow-hidden rounded-lg bg-white">
+                          <img src="./picture/haki-biye-detayli-mini-elbise-94af-7.jpg" alt="Ürün 3" class="w-full h-full object-cover group-hover:opacity-75">
+                      </div>
+                      <h3 class="mt-2 text-sm text-gray-500 text-center">Stokta Yok</h3>
+                      <p class="text-base font-semibold text-gray-900 text-center">Kahve Mavi Baklava Desenli Mabel Kazak</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<footer style="z-index: 10;" class="bg-gray-800 py-4 mt-12">
+    <div class="container mx-auto text-center text-gray-400 text-sm">
+        &copy; 2024 Butik Mağaza. Tüm hakları saklıdır.
+    </div>
+</footer>
+</body>
+</html>

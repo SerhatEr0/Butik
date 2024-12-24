@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasyon - Butik Sayfa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        .map-container {
+            height: 100%;
+            border-radius: 10px;
+        }
+        .location-text {
+            color: #4A4A4A;
+        }
+        /* Mobil ekranlarda harita ve yazı alt alta gelecek şekilde */
+        @media (max-width: 768px) {
+            .map-container {
+                height: 400px;
+            }
+            .location-info {
+                margin-top: 20px;
+            }
+        }
+        .content-wrapper {
+            min-height: 80vh; /* Sayfa yüksekliğini artırarak footer'ın ortada kalmasını engelle */
+        }
+        .services {
+            background-color: #f7fafc;
+            padding: 40px 0;
+        }
+        .service-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <!-- Sol kısım (logo ve menü) -->
+                <div class="flex flex-1 items-center justify-start">
+                    <!-- Logo -->
+                    <div class="flex shrink-0 items-center">
+                        <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                    </div>
+                    <!-- Menü (büyük ekranlar) -->
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="./index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ana Sayfa</a>
+                            <a href="./contact.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
+                            <a href="./about.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Hakkımızda</a>
+                            <a href="./location.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Lokasyonumuz</a>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Hamburger Icon -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile menu -->
+        <div class="sm:hidden" id="mobile-menu" style="display: none;">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <a href="./index.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ana Sayfa</a>
+                <a href="./contact.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
+                <a href="./about.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Hakkımızda</a>
+                <a href="./location.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Lokasyonumuz</a>
+                
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Lokasyon İçeriği -->
+    <section id="location" class="mt-16 py-12 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">Bizim Lokasyonumuz</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Harita -->
+                <div class="map-container bg-gray-200 rounded-lg overflow-hidden">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509382!2d144.95373631532166!3d-37.81627974202145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577f165f6c6e50b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1614824157171!5m2!1sen!2sau"
+                        width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <!-- Lokasyon Bilgileri -->
+                <div class="location-info">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Bize Nasıl Ulaşabilirsiniz?</h3>
+                    <p class="text-gray-600 mb-4">Butik mağazamız, İstanbul'un en hareketli caddesi olan İstiklal Caddesi üzerinde yer alıyor. Mağazamız, alışveriş yapmak, gezmek veya sadece şehri keşfetmek isteyen herkes için mükemmel bir noktada bulunuyor.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li><strong>Adres:</strong> İstiklal Caddesi, Beyoğlu, İstanbul</li>
+                        <li><strong>Telefon:</strong> +90 212 555 55 55</li>
+                        <li><strong>Email:</strong> info@butikmagaza.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ekstra Hizmetler -->
+    <section class="services">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Hizmetlerimiz</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-item">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Özel Tasarımlar</h3>
+                    <p class="text-gray-600">Özel günleriniz için şık ve zarif tasarımlar sunuyoruz. Her tarza hitap eden seçeneklerle hayalinizdeki ürünü bulabilirsiniz.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Ücretsiz Kargo</h3>
+                    <p class="text-gray-600">Tüm Türkiye'ye ücretsiz kargo hizmeti sağlıyoruz. Siparişleriniz hızlı ve güvenli bir şekilde size ulaştırılır.</p>
+                </div>
+                <div class="service-item">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Müşteri Destek</h3>
+                    <p class="text-gray-600">Her türlü sorunuz için 7/24 müşteri destek hattımızdan ulaşabilirsiniz. Size en kısa sürede yardımcı olmak için buradayız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 mt-12">
+        <div class="container mx-auto text-center text-gray-400 text-sm">
+            &copy; 2024 Butik Mağaza. Tüm hakları saklıdır.
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'none' || mobileMenu.style.display === '' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

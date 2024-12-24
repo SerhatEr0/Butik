@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butik Mağaza</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Yan yana fotoğraflar için düzen */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 7 fotoğraf */
+            gap: 15px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hakkımızda bölümü stil */
+        .about-section {
+            background-color: #f7fafc;
+            padding: 40px;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .about-section p {
+            font-size: 1.125rem;
+            color: #4a5568;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <!-- Sol kısım (logo ve menü) -->
+                <div class="flex flex-1 items-center justify-start">
+                    <!-- Logo -->
+                    <div class="flex shrink-0 items-center">
+                        <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+                    </div>
+                    <!-- Menü (büyük ekranlar) -->
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="./index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ana Sayfa</a>
+                            
+                            <a href="./contact.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
+                            <a href="./about.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Hakkımızda</a>
+                            
+                            <a href="./location.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Lokasyon</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Hamburger Icon -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile menu -->
+        <div class="sm:hidden" id="mobile-menu" style="display: none;">
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <a href="./index.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ana Sayfa</a>
+                <a href="./contact.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
+                <a href="./about.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Hakkımızda</a>
+                
+                <a href="./location.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Lokasyon</a>
+            </div>
+        </div>
+    </nav>
+    
+    <script>
+        // Toggle mobile menu visibility
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+    
+    
+    <!-- Galeri -->
+    <section class="gallery">
+        <img src="./picture/beyaz-siyah-cizgili-basic-aura-bluz-9667a0.jpg" alt="Fotoğraf 1">
+        <img src="./picture/bordo-cift-yakali-basic-bluz-a-4d34.jpg" alt="Fotoğraf 2">
+        <img src="./picture/bordo-lacivert-seritli-polo-yaka-kazak-7fab18.jpg" alt="Fotoğraf 3">
+        <img src="./picture/gri-kemerli-pelus-blazer-ceket-672a90.jpg" alt="Fotoğraf 4">
+        <img src="./picture/gri-sac-orgu-marka-model-logolu-hirka-7-4d3d.jpg" alt="Fotoğraf 5">
+        <img src="./picture/kirmizi-v-yaka-yirtmacli-oversize-kaza-9-40f0.jpg" alt="Fotoğraf 6">
+        <img src="./picture/pembe-sac-orgu-marka-model-logolu-hirk--8b82-.jpg" alt="Fotoğraf 7">
+    </section>
+
+    <!-- Hakkımızda -->
+    <section class="about-section">
+        <h2>Hakkımızda</h2>
+        <p>
+            Biz, kaliteli ürünler ve müşteri odaklı hizmet anlayışıyla sektördeki yerimizi sağlamlaştıran bir butik mağazayız. Müşterilerimizin memnuniyeti her şeyden önce gelir. Butik mağazamızda, özenle seçilmiş ürünler ile her zaman sizlere en iyi hizmeti sunmayı hedefliyoruz. Moda, rahatlık ve kaliteyi bir arada sunarak, alışveriş deneyiminizi keyifli hale getiriyoruz. Her bir müşterimize özel ilgi gösteriyor ve her zaman onların ihtiyaçlarına odaklanıyoruz.
+        </p>
+        <p>
+            Hedefimiz, sadece satış yapmak değil, müşteri memnuniyetini en üst düzeyde tutarak, uzun vadeli ilişkiler kurmaktır. Bizimle alışveriş yapmak, sadece bir alışveriş değil, aynı zamanda bir deneyimdir. Butik mağazamızda, her detay müşteri memnuniyetini ön planda tutarak tasarlanmış ve kaliteli bir alışveriş ortamı sunulmaktadır. Tüm bu süreçleri sizinle paylaşıyor, birlikte büyümeyi hedefliyoruz.
+        </p>
+        <p>
+            Butik Mağaza olarak, sürekli yenilikçi ve yaratıcı çözümler üreterek sektördeki liderliğimizi pekiştiriyoruz. Çeşitli ürün kategorilerinde müşteri ihtiyaçlarına cevap veren seçeneklerimizle, tüm misafirlerimizi mutlu etmeyi amaçlıyoruz. Alışverişin ötesinde bir deneyim yaşamak isteyen herkesi mağazamıza bekliyoruz.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4">
+        <div class="container mx-auto text-center text-gray-400 text-sm">
+            &copy; 2024 Butik Mağaza. Tüm hakları saklıdır.
+        </div>
+    </footer>
+</body>
+</html>
