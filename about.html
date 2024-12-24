@@ -47,7 +47,7 @@
 </head>
 <body class="bg-gray-100">
     <nav class="bg-gray-800">
-        <div class="max-w-7xl px-2 sm:px-6 lg:px-8 ml-0"> <!-- ml-0 ekledim -->
+        <div class="max-w-7xl px-2 sm:px-6 lg:px-8 ml-0">
             <div class="relative flex h-16 items-center justify-between">
                 <!-- Sol kısım (logo ve menü) -->
                 <div class="flex flex-1 items-center justify-start">
@@ -61,7 +61,6 @@
                             <a href="./index.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ana Sayfa</a>
                             <a href="./contact.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
                             <a href="./about.html" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Hakkımızda</a>
-                           
                             <a href="./location.html" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Lokasyon</a>
                         </div>
                     </div>
@@ -78,17 +77,33 @@
                 </div>
             </div>
         </div>
+    
         <!-- Mobile menu -->
         <div class="sm:hidden" id="mobile-menu" style="display: none;">
             <div class="space-y-1 px-2 pt-2 pb-3">
                 <a href="./index.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Ana Sayfa</a>
                 <a href="./contact.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">İletişim</a>
                 <a href="./about.html" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white">Hakkımızda</a>
-                
                 <a href="./location.html" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Lokasyon</a>
             </div>
         </div>
     </nav>
+    
+    <script>
+        // Toggle mobile menu visibility
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            // Kontrol ve menü göster/gizle
+            if (mobileMenu.style.display === 'block') {
+                mobileMenu.style.display = 'none';
+            } else {
+                mobileMenu.style.display = 'block';
+            }
+        });
+    </script>
+    
     
     
     <!-- Galeri -->
